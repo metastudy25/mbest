@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동명사 완전 정복 🚀 | 랭귀지오딧 & 엠베스트SE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a00e0;
+            --secondary-color: #8e2de2;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --border-color: #e0e0e0;
+            --correct-color: #28a745;
+            --incorrect-color: #dc3545;
+            --font-main: 'Noto Sans KR', sans-serif;
+            --font-en: 'Poppins', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.7;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-family: var(--font-en);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .header h1 span {
+            font-family: var(--font-main);
+            font-weight: 900;
+        }
+
+        .header .provider {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 15px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .card h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+            display: inline-block;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            background-color: #e9e0ff;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .intro strong {
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+
+        /* Tabs for Gerund Roles */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .tab-button {
+            flex-grow: 1;
+            padding: 15px 10px;
+            border: none;
+            background-color: #f1f1f1;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+            text-align: center;
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-weight: 700;
+        }
+
+        .tab-content {
+            display: none;
+            width: 100%;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-content h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .example-list li {
+            list-style: none;
+            padding: 12px;
+            border-bottom: 1px dashed var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .example-list li:last-child {
+            border-bottom: none;
+        }
+
+        .example-list .en {
+            font-family: var(--font-en);
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .example-list .en strong {
+            background-color: #ffeb3b;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        
+        .example-list .ko {
+            font-size: 0.95rem;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .tip-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fffbe6;
+            border-left: 5px solid #ffc107;
+            border-radius: 4px;
+        }
+        .tip-box h4 {
+            color: #c79100;
+            margin-bottom: 5px;
+        }
+
+        /* Gerund vs Participle */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .comparison-table th, .comparison-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background-color: #f2f2f2;
+            font-weight: 700;
+        }
+
+        .comparison-table td strong {
+            color: var(--secondary-color);
+        }
+
+        /* Quiz Section */
+        #quiz-form {
+            counter-reset: question-counter;
+        }
+        .quiz-question {
+            margin-bottom: 25px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .quiz-question::before {
+            counter-increment: question-counter;
+            content: "Q" counter(question-counter) ". ";
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .quiz-question p {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .quiz-options label {
+            display: block;
+            margin: 8px 0;
+            padding: 10px 15px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .quiz-options label:hover {
+            background-color: #e9ecef;
+        }
+
+        .quiz-options input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .quiz-feedback {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        .quiz-question.correct .quiz-feedback {
+            background-color: #e9f7ec;
+            color: var(--correct-color);
+        }
+
+        .quiz-question.incorrect .quiz-feedback {
+            background-color: #fdecea;
+            color: var(--incorrect-color);
+        }
+
+        #submit-quiz {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 20px;
+        }
+
+        #submit-quiz:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 0, 224, 0.4);
+        }
+
+        #quiz-results {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+        #quiz-results.show {
+            display: block;
+            background-color: #e9e0ff;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #777;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .card h2 {
+                font-size: 1.5rem;
+            }
+            .tabs {
+                flex-direction: column;
+            }
+            .tab-button {
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <h1><span>동명사</span>(Gerund) <span>마스터하기</span> 🚀</h1>
+            <p>동사의 변신은 무죄! 명사가 된 동사, 동명사의 모든 것을 파헤쳐 봅시다.</p>
+            <p class="provider">Provided by 랭귀지오딧어학원, 엠베스트se미사학원</p>
+        </header>
+
+        <section class="card intro">
+            <h2>💡 동명사(Gerund)란?</h2>
+            <p>
+                동명사는 <strong>「동사원형 + -ing」</strong>의 형태로, 문장에서 <strong>명사 역할</strong>을 해요. <br>
+                해석은 주로 '<strong>~하는 것</strong>' 또는 '<strong>~하기</strong>'로 자연스럽게 연결됩니다. <br>
+                마치 동사가 '명사 코트'를 입은 것처럼, 행동(동사) 자체를 개념화하여 문장의 주체나 대상(명사)으로 자유롭게 활용할 수 있게 해주는 멋진 문법이랍니다!
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>📖 동명사의 네 가지 얼굴: 용법 구별하기</h2>
+            <div class="tabs">
+                <button class="tab-button active" onclick="openTab(event, 'subject')">1. 주어 역할</button>
+                <button class="tab-button" onclick="openTab(event, 'verb-object')">2. 동사의 목적어</button>
+                <button class="tab-button" onclick="openTab(event, 'prep-object')">3. 전치사의 목적어</button>
+                <button class="tab-button" onclick="openTab(event, 'complement')">4. 보어 역할</button>
+            </div>
+
+            <div id="subject" class="tab-content active">
+                <h3>👑 문장의 주인공, 주어 (Subject)</h3>
+                <p>동명사가 문장 맨 앞에서 주어 역할을 할 때, 가장 중요한 포인트는 <strong>단수 취급</strong>한다는 점이에요! 동사는 is, was, has 등을 사용해야겠죠?</p>
+                <ul class="example-list">
+                    <li>
+                        <span class="en"><strong>Walking</strong> is good for your health.</span>
+                        <span class="ko"><strong>걷기</strong>는 너의 건강에 좋다.</span>
+                    </li>
+                    <li>
+                        <span class="en"><strong>Making</strong> friends is not easy.</span>
+                        <span class="ko"><strong>친구를 사귀는 것</strong>은 쉽지 않다.</span>
+                    </li>
+                    <li>
+                        <span class="en"><strong>Drinking</strong> water every day is important.</span>
+                        <span class="ko">매일 <strong>물을 마시는 것</strong>은 중요해.</span>
+                    </li>
+                    <li>
+                        <span class="en"><strong>Playing</strong> team sports is a social activity.</span>
+                        <span class="ko"><strong>팀 스포츠를 하는 것</strong>은 사회적인 활동이다.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="verb-object" class="tab-content">
+                <h3>🎯 동사의 짝꿍, 목적어 (Object of Verb)</h3>
+                <p>특정 동사들은 목적어로 동명사(-ing)를 데리고 다니는 것을 좋아해요. enjoy, finish, mind, avoid, keep, stop 등이 대표적이죠. love, like, start, begin 등은 to부정사와 동명사 둘 다 좋아한답니다!</p>
+                <ul class="example-list">
+                    <li>
+                        <span class="en">I love <strong>baking</strong>.</span>
+                        <span class="ko">나는 <strong>빵 굽는 것</strong>을 정말 좋아해.</span>
+                    </li>
+                     <li>
+                        <span class="en">He finished <strong>washing</strong> the dishes.</span>
+                        <span class="ko">그는 <strong>설거지를 끝냈다</strong>.</span>
+                    </li>
+                    <li>
+                        <span class="en">I enjoyed <strong>taking</strong> pictures of the blue streets.</span>
+                        <span class="ko">나는 파란색 길의 <strong>사진을 찍는 것</strong>을 즐겼다.</span>
+                    </li>
+                     <li>
+                        <span class="en">My dog enjoys <strong>tearing</strong> tissues.</span>
+                        <span class="ko">나의 개는 휴지 <strong>찢는 것</strong>을 즐겨 한다.</span>
+                    </li>
+                    <li>
+                        <span class="en">My mom enjoys <strong>attending</strong> social events.</span>
+                        <span class="ko">나의 엄마는 사회적 행사에 <strong>참여하는 것</strong>을 즐긴다.</span>
+                    </li>
+                    <li>
+                        <span class="en">During the campfire, we enjoyed <strong>talking</strong> under the stars.</span>
+                        <span class="ko">캠프파이어 동안 우리는 별빛 아래에서 <strong>이야기 나누기</strong>를 즐겼다.</span>
+                    </li>
+                     <li>
+                        <span class="en">I like <strong>playing</strong> basketball.</span>
+                        <span class="ko">나는 <strong>농구하는 것</strong>을 좋아해.</span>
+                    </li>
+                     <li>
+                        <span class="en">I like <strong>flying</strong>, but I don’t like <strong>running</strong>.</span>
+                        <span class="ko">나는 <strong>날기</strong>를 좋아하지만, <strong>뛰는 것</strong>은 좋아하지 않아.</span>
+                    </li>
+                     <li>
+                        <span class="en">I like <strong>dancing</strong>, but I don’t like <strong>swimming</strong>.</span>
+                        <span class="ko">나는 <strong>춤추기</strong>를 좋아하지만, <strong>수영하는 것</strong>은 좋아하지 않아.</span>
+                    </li>
+                     <li>
+                        <span class="en">I love <strong>eating</strong> spicy food like gimchi.</span>
+                        <span class="ko">나는 김치 같은 매운 음식을 <strong>먹는 것</strong>을 정말 좋아한다.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="prep-object" class="tab-content">
+                <h3>🔗 전치사의 단짝, 목적어 (Object of Preposition)</h3>
+                <p>전치사(at, in, on, for, of, about, before...) 뒤에 동사를 쓰고 싶다면? 반드시 동명사(-ing) 형태로 써야 하는 것이 규칙입니다!</p>
+                <ul class="example-list">
+                    <li>
+                        <span class="en">Peter is good <strong>at painting</strong>.</span>
+                        <span class="ko">Peter는 <strong>그림 그리기</strong>를 잘한다.</span>
+                    </li>
+                    <li>
+                        <span class="en">Kate is interested <strong>in learning</strong> Spanish.</span>
+                        <span class="ko">Kate는 스페인어 <strong>배우는 것</strong>에 관심이 있다.</span>
+                    </li>
+                    <li>
+                        <span class="en"><strong>Before speaking</strong>, I learned to think twice.</span>
+                        <span class="ko"><strong>말하기 전에</strong>, 나는 두 번 생각하는 것을 배웠다.</span>
+                    </li>
+                    <li>
+                        <span class="en">My job is to find perfect places <strong>for shooting</strong>.</span>
+                        <span class="ko">내 일은 <strong>촬영을 위한</strong> 완벽한 장소를 찾는 거야.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="complement" class="tab-content">
+                <h3>✨ 주어를 설명해주는, 보어 (Complement)</h3>
+                <p>주어와 동사만으로는 의미가 부족할 때, 동명사가 보충 설명을 해줄 수 있어요. '주어 = 동명사' 관계가 성립하는 것이 특징입니다. (e.g. 내 취미 = 테니스 치는 것)</p>
+                 <ul class="example-list">
+                    <li>
+                        <span class="en">My hobby is <strong>playing</strong> tennis.</span>
+                        <span class="ko">나의 취미는 테니스를 <strong>치는 것</strong>이다.</span>
+                    </li>
+                    <li>
+                        <span class="en">My favorite activity is <strong>playing</strong> the drums.</span>
+                        <span class="ko">내가 가장 좋아하는 활동은 드럼을 <strong>연주하는 것</strong>이다.</span>
+                    </li>
+                </ul>
+            </div>
+             <div class="tip-box">
+                <h4>🧠 문법 특성 요약!</h4>
+                <p>동명사는 동사를 명사처럼 쓰기 위해 활용돼요. 주어 자리에서는 <strong>단수 취급</strong>! <strong>enjoy, finish</strong> 같은 동사 뒤, 그리고 모든 <strong>전치사 뒤</strong>에는 꼭 동명사(-ing)를 써야 한다는 점을 기억하세요!</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>🧐 동명사 vs 현재분사, 어떻게 다를까?</h2>
+            <p>같은 '-ing' 형태라도 쓰임이 전혀 달라요! 동명사는 '명사' 역할(~하는 것), 현재분사는 '형용사' 역할(~하는, ~하고 있는)을 합니다. 이 차이를 구별하는 것이 고득점의 비결!</p>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>동명사 (Gerund)</th>
+                        <th>현재분사 (Present Participle)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>역할</strong></td>
+                        <td>명사 (주어, 목적어, 보어)</td>
+                        <td>형용사 (명사 수식, 보어) / 진행 시제</td>
+                    </tr>
+                    <tr>
+                        <td><strong>해석</strong></td>
+                        <td>~하는 것, ~하기</td>
+                        <td>~하는, ~하고 있는</td>
+                    </tr>
+                    <tr>
+                        <td><strong>예시 1</strong></td>
+                        <td>My hobby is <strong>reading</strong> books. (내 취미는 책을 <strong>읽는 것</strong>이다.)</td>
+                        <td>Look at the boy <strong>reading</strong> a book. (책을 <strong>읽고 있는</strong> 저 소년을 봐.)</td>
+                    </tr>
+                     <tr>
+                        <td><strong>예시 2</strong></td>
+                        <td>a <strong>sleeping</strong> bag (잠을 <strong>자기 위한</strong> 가방 = 침낭) → <strong>용도</strong></td>
+                        <td>a <strong>sleeping</strong> baby (잠을 <strong>자고 있는</strong> 아기) → <strong>상태/동작</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="card">
+            <h2>📝 Final Check! 실력 점검 퀴즈</h2>
+            <form id="quiz-form">
+                
+                <!-- Part 1: 역할 구별 -->
+                <div class="quiz-question" data-answer="주어">
+                    <p>밑줄 친 동명사의 역할을 고르세요: <br> <u><b>Making</b> friends</u> is not easy.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q1" value="주어"> 주어</label>
+                        <label><input type="radio" name="q1" value="동사의 목적어"> 동사의 목적어</label>
+                        <label><input type="radio" name="q1" value="보어"> 보어</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: 주어. '친구를 사귀는 것은'이라는 의미로 문장의 주체입니다.</div>
+                </div>
+
+                <div class="quiz-question" data-answer="동사의 목적어">
+                    <p>밑줄 친 동명사의 역할을 고르세요: <br> I enjoyed <u><b>taking</b> pictures</u> of the blue streets.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q2" value="주어"> 주어</label>
+                        <label><input type="radio" name="q2" value="동사의 목적어"> 동사의 목적어</label>
+                        <label><input type="radio" name="q2" value="전치사의 목적어"> 전치사의 목적어</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: 동사의 목적어. 'enjoy'라는 동사의 대상(~을 즐겼다)이 됩니다.</div>
+                </div>
+
+                <div class="quiz-question" data-answer="보어">
+                    <p>밑줄 친 동명사의 역할을 고르세요: <br> My hobby is <u><b>playing</b> tennis</u>.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q3" value="주어"> 주어</label>
+                        <label><input type="radio" name="q3" value="동사의 목적어"> 동사의 목적어</label>
+                        <label><input type="radio" name="q3" value="보어"> 보어</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: 보어. 주어인 'My hobby'를 보충 설명해주는 역할을 합니다. (내 취미 = 테니스 치는 것)</div>
+                </div>
+
+                <div class="quiz-question" data-answer="전치사의 목적어">
+                    <p>밑줄 친 동명사의 역할을 고르세요: <br> Kate is interested in <u><b>learning</b> Spanish</u>.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q4" value="주어"> 주어</label>
+                        <label><input type="radio" name="q4" value="동사의 목적어"> 동사의 목적어</label>
+                        <label><input type="radio" name="q4" value="전치사의 목적어"> 전치사의 목적어</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: 전치사의 목적어. 전치사 'in' 뒤에 와서 그 목적어 역할을 합니다.</div>
+                </div>
+
+                 <div class="quiz-question" data-answer="주어">
+                    <p>밑줄 친 동명사의 역할을 고르세요: <br> <u><b>Drinking</b> water</u> every day is important.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q5" value="주어"> 주어</label>
+                        <label><input type="radio" name="q5" value="동사의 목적어"> 동사의 목적어</label>
+                        <label><input type="radio" name="q5" value="보어"> 보어</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: 주어. 문장 맨 앞에서 주체 역할을 합니다.</div>
+                </div>
+                
+                 <div class="quiz-question" data-answer="동사의 목적어">
+                    <p>밑줄 친 동명사의 역할을 고르세요: <br> My dog enjoys <u><b>tearing</b> tissues</u>.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q6" value="주어"> 주어</label>
+                        <label><input type="radio" name="q6" value="동사의 목적어"> 동사의 목적어</label>
+                        <label><input type="radio" name="q6" value="전치사의 목적어"> 전치사의 목적어</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: 동사의 목적어. 동사 'enjoys'의 대상입니다.</div>
+                </div>
+                
+                <div class="quiz-question" data-answer="보어">
+                    <p>밑줄 친 동명사의 역할을 고르세요: <br> My favorite activity is <u><b>playing</b> the drums</u>.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q7" value="주어"> 주어</label>
+                        <label><input type="radio" name="q7" value="동사의 목적어"> 동사의 목적어</label>
+                        <label><input type="radio" name="q7" value="보어"> 보어</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: 보어. 주어 'My favorite activity'와 동격( = ) 관계입니다.</div>
+                </div>
+
+                <div class="quiz-question" data-answer="전치사의 목적어">
+                    <p>밑줄 친 동명사의 역할을 고르세요: <br> Peter is good at <u><b>painting</b></u>.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q8" value="보어"> 보어</label>
+                        <label><input type="radio" name="q8" value="전치사의 목적어"> 전치사의 목적어</label>
+                        <label><input type="radio" name="q8" value="주어"> 주어</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: 전치사의 목적어. 전치사 'at'의 목적어입니다.</div>
+                </div>
+                
+                <div class="quiz-question" data-answer="동사의 목적어">
+                    <p>밑줄 친 동명사의 역할을 고르세요: <br> I love <u><b>eating</b> spicy food</u> like gimchi.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q9" value="주어"> 주어</label>
+                        <label><input type="radio" name="q9" value="동사의 목적어"> 동사의 목적어</label>
+                        <label><input type="radio" name="q9" value="보어"> 보어</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: 동사의 목적어. 동사 'love'의 목적어입니다.</div>
+                </div>
+                
+                <div class="quiz-question" data-answer="주어">
+                    <p>밑줄 친 동명사의 역할을 고르세요: <br> <u><b>Playing</b> team sports</u> is a social activity.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q10" value="주어"> 주어</label>
+                        <label><input type="radio" name="q10" value="보어"> 보어</label>
+                        <label><input type="radio" name="q10" value="전치사의 목적어"> 전치사의 목적어</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: 주어. 문장의 주체입니다.</div>
+                </div>
+
+                <div class="quiz-question" data-answer="동사의 목적어">
+                    <p>밑줄 친 동명사의 역할을 고르세요: <br> He finished <u><b>washing</b> the dishes</u>.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q11" value="주어"> 주어</label>
+                        <label><input type="radio" name="q11" value="동사의 목적어"> 동사의 목적어</label>
+                        <label><input type="radio" name="q11" value="보어"> 보어</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: 동사의 목적어. 동사 'finished'의 목적어입니다.</div>
+                </div>
+                
+                <div class="quiz-question" data-answer="전치사의 목적어">
+                    <p>밑줄 친 동명사의 역할을 고르세요: <br> Before <u><b>speaking</b></u>, I learned to think twice.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q12" value="주어"> 주어</label>
+                        <label><input type="radio" name="q12" value="전치사의 목적어"> 전치사의 목적어</label>
+                        <label><input type="radio" name="q12" value="보어"> 보어</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: 전치사의 목적어. 전치사 'Before'의 목적어입니다.</div>
+                </div>
+
+                <!-- Part 2: 동명사 vs 분사 구별 -->
+                <div class="quiz-question" data-answer="동명사">
+                    <p>밑줄 친 -ing의 쓰임이 나머지와 다른 하나를 고르세요.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q13" value="동명사"> ① His job is <b>selling</b> cars.</label>
+                        <label><input type="radio" name="q13" value="현재분사"> ② Look at the <b>singing</b> bird.</label>
+                        <label><input type="radio" name="q13" value="현재분사"> ③ He is <b>running</b> in the park.</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: ①. ①은 '차를 파는 것'이라는 의미의 동명사(보어)이고, ②, ③은 '~하는', '~하는 중인'의 의미를 가진 현재분사입니다.</div>
+                </div>
+                
+                <div class="quiz-question" data-answer="동명사">
+                    <p>밑줄 친 <b>sleeping</b>의 쓰임이 동명사인 것을 고르세요.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q14" value="현재분사"> ① The baby is <b>sleeping</b> in the bed.</label>
+                        <label><input type="radio" name="q14" value="동명사"> ② A <b>sleeping</b> car is a car on a train with beds.</label>
+                        <label><input type="radio" name="q14" value="현재분사"> ③ The <b>sleeping</b> cat is so cute.</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: ②. '잠자기 위한 차' 즉 '침대차'라는 용도를 나타내는 동명사입니다. ①, ③은 '잠자고 있는'이라는 동작을 나타내는 현재분사입니다.</div>
+                </div>
+                
+                <div class="quiz-question" data-answer="현재분사">
+                    <p>밑줄 친 <b>playing</b>의 쓰임이 현재분사인 것을 고르세요.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q15" value="동명사"> ① <b>Playing</b> games is fun.</label>
+                        <label><input type="radio" name="q15" value="동명사"> ② I like <b>playing</b> basketball.</label>
+                        <label><input type="radio" name="q15" value="현재분사"> ③ The girl <b>playing</b> the piano is my sister.</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: ③. '피아노를 치고 있는' 소녀를 수식하는 현재분사입니다. ①은 주어, ②는 목적어로 쓰인 동명사입니다.</div>
+                </div>
+                
+                <div class="quiz-question" data-answer="동명사">
+                    <p>밑줄 친 -ing의 쓰임이 동명사인 것을 고르세요.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q16" value="동명사"> ① Thank you for <b>coming</b>.</label>
+                        <label><input type="radio" name="q16" value="현재분사"> ② I saw a bird <b>flying</b>.</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: ①. 전치사 'for'의 목적어로 쓰인 동명사입니다. ②는 '날고 있는' 새를 의미하는 현재분사입니다.</div>
+                </div>
+                
+                <div class="quiz-question" data-answer="현재분사">
+                    <p>밑줄 친 -ing의 쓰임이 현재분사인 것을 고르세요.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q17" value="동명사"> ① We enjoyed <b>talking</b> under the stars.</label>
+                        <label><input type="radio" name="q17" value="현재분사"> ② The news was <b>surprising</b>.</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: ②. '놀라움을 주는'이라는 의미로 주어의 상태를 설명하는 현재분사(보어)입니다. ①은 동사 'enjoyed'의 목적어로 쓰인 동명사입니다.</div>
+                </div>
+
+                <div class="quiz-question" data-answer="동명사">
+                    <p>밑줄 친 -ing의 쓰임을 고르세요: My mom enjoys <b>attending</b> social events.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q18" value="동명사"> 동명사</label>
+                        <label><input type="radio" name="q18" value="현재분사"> 현재분사</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: 동명사. '~하는 것'으로 해석되며 동사 enjoys의 목적어 역할을 합니다.</div>
+                </div>
+
+                <div class="quiz-question" data-answer="현재분사">
+                    <p>밑줄 친 -ing의 쓰임을 고르세요: The boy <b>walking</b> toward us is Tom.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q19" value="동명사"> 동명사</label>
+                        <label><input type="radio" name="q19" value="현재분사"> 현재분사</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: 현재분사. '~하고 있는'으로 해석되며 명사 The boy를 뒤에서 수식합니다.</div>
+                </div>
+
+                <div class="quiz-question" data-answer="동명사">
+                    <p>밑줄 친 -ing의 쓰임을 고르세요: My job is finding perfect places for <b>shooting</b>.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q20" value="동명사"> 동명사</label>
+                        <label><input type="radio" name="q20" value="현재분사"> 현재분사</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: 동명사. 전치사 for의 목적어 역할을 합니다. '촬영을 위한'의 의미입니다.</div>
+                </div>
+                
+                <div class="quiz-question" data-answer="현재분사">
+                    <p>밑줄 친 -ing의 쓰임이 나머지와 다른 하나를 고르세요.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q21" value="동명사"> ① I like <b>dancing</b>.</label>
+                        <label><input type="radio" name="q21" value="동명사"> ② <b>Walking</b> is good exercise.</label>
+                        <label><input type="radio" name="q21" value="현재분사"> ③ Who is that <b>dancing</b> girl?</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: ③. ③은 '춤추고 있는' 소녀를 꾸며주는 현재분사입니다. ①, ②는 각각 목적어, 주어로 쓰인 동명사입니다.</div>
+                </div>
+
+                <div class="quiz-question" data-answer="동명사">
+                    <p>밑줄 친 -ing의 쓰임이 나머지와 다른 하나를 고르세요.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q22" value="현재분사"> ① She is <b>washing</b> the dishes.</label>
+                        <label><input type="radio" name="q22" value="동명사"> ② My hobby is <b>washing</b> the dishes.</label>
+                        <label><input type="radio" name="q22" value="현재분사"> ③ The <b>washing</b> machine is broken.</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: ②. '설거지 하는 것'이라는 보어 역할의 동명사입니다. ①은 진행형에 쓰인 현재분사, ③은 '세탁하고 있는' 기계가 아닌 '세탁 용도'의 기계이므로 현재분사로 볼 수 있습니다. (※ washing machine은 굳어진 복합 명사로 보기도 합니다. 하지만 여기서는 동명사의 용법과 구별하는 것이 중요합니다.) 가장 확실히 동명사인 것은 ②입니다.</div>
+                </div>
+                
+                <!-- Part 3: 문장 완성 -->
+                <div class="quiz-question" data-answer="walking">
+                    <p>괄호 안의 동사를 알맞은 형태로 바꾸세요: (Walk) is good for your health.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q23" value="to walk"> to walk</label>
+                        <label><input type="radio" name="q23" value="walking"> walking</label>
+                        <label><input type="radio" name="q23" value="walked"> walked</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: walking. 문장의 주어 자리에는 동명사나 to부정사가 와야 합니다. 여기서는 동명사를 배우고 있으므로 walking이 가장 적절합니다.</div>
+                </div>
+                
+                <div class="quiz-question" data-answer="baking">
+                    <p>괄호 안의 동사를 알맞은 형태로 바꾸세요: I love (bake).</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q24" value="baking"> baking</label>
+                        <label><input type="radio" name="q24" value="baked"> baked</label>
+                        <label><input type="radio" name="q24" value="to bake"> to bake</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: baking. 동사 love는 동명사를 목적어로 가질 수 있습니다. (to bake도 가능하지만 여기서는 동명사를 묻는 문제)</div>
+                </div>
+                
+                 <div class="quiz-question" data-answer="running">
+                    <p>괄호 안의 동사를 알맞은 형태로 바꾸세요: I don’t like (run).</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q25" value="ran"> ran</label>
+                        <label><input type="radio" name="q25" value="running"> running</label>
+                        <label><input type="radio" name="q25" value="to run"> to run</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: running. 동사 like는 동명사를 목적어로 가질 수 있습니다.</div>
+                </div>
+                
+                <div class="quiz-question" data-answer="swimming">
+                    <p>괄호 안의 동사를 알맞은 형태로 바꾸세요: I don’t like (swim).</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q26" value="swimming"> swimming</label>
+                        <label><input type="radio" name="q26" value="swam"> swam</label>
+                        <label><input type="radio" name="q26" value="to swim"> to swim</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: swimming. 동사 like는 동명사를 목적어로 가질 수 있습니다.</div>
+                </div>
+                
+                <div class="quiz-question" data-answer="attending">
+                    <p>괄호 안의 동사를 알맞은 형태로 바꾸세요: My mom enjoys (attend) social events.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q27" value="to attend"> to attend</label>
+                        <label><input type="radio" name="q27" value="attending"> attending</label>
+                        <label><input type="radio" name="q28" value="attended"> attended</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: attending. 동사 enjoy는 목적어로 동명사만 사용합니다.</div>
+                </div>
+                
+                <div class="quiz-question" data-answer="painting">
+                    <p>괄호 안의 동사를 알맞은 형태로 바꾸세요: Peter is good at (paint).</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q29" value="painting"> painting</label>
+                        <label><input type="radio" name="q29" value="to paint"> to paint</label>
+                        <label><input type="radio" name="q29" value="painted"> painted</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: painting. 전치사 at 뒤에는 반드시 동명사 형태가 와야 합니다.</div>
+                </div>
+                
+                <div class="quiz-question" data-answer="learning">
+                    <p>괄호 안의 동사를 알맞은 형태로 바꾸세요: Kate is interested in (learn) Spanish.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q30" value="to learn"> to learn</label>
+                        <label><input type="radio" name="q30" value="learned"> learned</label>
+                        <label><input type="radio" name="q30" value="learning"> learning</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: learning. 전치사 in 뒤에는 반드시 동명사 형태가 와야 합니다.</div>
+                </div>
+                
+                <div class="quiz-question" data-answer="speaking">
+                    <p>괄호 안의 동사를 알맞은 형태로 바꾸세요: Before (speak), I learned to think twice.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q31" value="spoke"> spoke</label>
+                        <label><input type="radio" name="q31" value="speaking"> speaking</label>
+                        <label><input type="radio" name="q31" value="to speak"> to speak</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: speaking. 전치사 Before 뒤에는 반드시 동명사 형태가 와야 합니다.</div>
+                </div>
+                
+                <div class="quiz-question" data-answer="making">
+                    <p>괄호 안의 동사를 알맞은 형태로 바꾸세요: (Make) friends is not easy.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q32" value="making"> making</label>
+                        <label><input type="radio" name="q32" value="made"> made</label>
+                        <label><input type="radio" name="q32" value="to make"> to make</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: making. 문장의 주어 자리에는 동명사가 와야 합니다.</div>
+                </div>
+
+                <div class="quiz-question" data-answer="playing">
+                    <p>괄호 안의 동사를 알맞은 형태로 바꾸세요: My favorite activity is (play) the drums.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q33" value="played"> played</label>
+                        <label><input type="radio" name="q33" value="to play"> to play</label>
+                        <label><input type="radio" name="q33" value="playing"> playing</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: playing. 'is' 동사의 보어 역할로 동명사가 와야 합니다.</div>
+                </div>
+                
+                <div class="quiz-question" data-answer="washing">
+                    <p>괄호 안의 동사를 알맞은 형태로 바꾸세요: He finished (wash) the dishes.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q34" value="washing"> washing</label>
+                        <label><input type="radio" name="q34" value="to wash"> to wash</label>
+                        <label><input type="radio" name="q34" value="washed"> washed</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: washing. 동사 finish는 목적어로 동명사만 사용합니다.</div>
+                </div>
+
+                <div class="quiz-question" data-answer="talking">
+                    <p>괄호 안의 동사를 알맞은 형태로 바꾸세요: We enjoyed (talk) under the stars.</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q35" value="talked"> talked</label>
+                        <label><input type="radio" name="q35" value="talking"> talking</label>
+                        <label><input type="radio" name="q35" value="to talk"> to talk</label>
+                    </div>
+                    <div class="quiz-feedback">💡 정답: talking. 동사 enjoy는 목적어로 동명사만 사용합니다.</div>
+                </div>
+
+                <button type="button" id="submit-quiz">채점하기 ✅</button>
+                <div id="quiz-results"></div>
+            </form>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2024. All rights reserved.</p>
+            <p><strong>랭귀지오딧어학원, 엠베스트se미사학원</strong> 제공</p>
+        </footer>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        document.getElementById('submit-quiz').addEventListener('click', function() {
+            const questions = document.querySelectorAll('.quiz-question');
+            let score = 0;
+            
+            questions.forEach(question => {
+                const correctAnswer = question.getAttribute('data-answer');
+                const selectedOption = question.querySelector('input:checked');
+                const feedbackEl = question.querySelector('.quiz-feedback');
+
+                // Reset styles
+                question.classList.remove('correct', 'incorrect');
+                if (feedbackEl) feedbackEl.style.display = 'none';
+
+                if (selectedOption) {
+                    if (selectedOption.value === correctAnswer) {
+                        score++;
+                        question.classList.add('correct');
+                    } else {
+                        question.classList.add('incorrect');
+                    }
+                    if (feedbackEl) {
+                        feedbackEl.style.display = 'block';
+                    }
+                } else {
+                    // If no answer is selected
+                    question.classList.add('incorrect');
+                     if (feedbackEl) {
+                        feedbackEl.style.display = 'block';
+                    }
+                }
+            });
+
+            const resultsEl = document.getElementById('quiz-results');
+            resultsEl.innerHTML = `🎉 당신의 점수는: ${score} / ${questions.length} 점 입니다! 🎉`;
+            resultsEl.classList.add('show');
+            resultsEl.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
